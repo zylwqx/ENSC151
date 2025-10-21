@@ -18,7 +18,22 @@
 
 using namespace std;
 double H, A, T2, T1, X, k;
-    
+
+/******************************************************************
+ * thermalConductivity -- Allows user to input known variables to calculate for the coefficient of thermal confustivity
+ *
+ * Parameters: none
+ * Modifies: cout, cin
+ * 
+ * Input: All known variables:
+ *            - H, A, T1, T2, X
+ * Output: The coefficient of thermal conductivity
+ *
+ * Pre condition -- All inputs are numbers
+ * 
+ * Returns: 0
+ *******************************************************************/
+
 double thermalConductivity(){
     cout << "Enter H (rate of heat transfer, W):" << endl;
     cin >> H;
@@ -33,6 +48,21 @@ double thermalConductivity(){
     k = (H*X)/(A*(T2 - T1));
     return k, H, A, T1, T2, X;
 }
+
+/******************************************************************
+ * tempSide2 -- Allows user to input known variables to calculate for the tempurature of side 2
+ *
+ * Parameters: none
+ * Modifies: cout, cin
+ * 
+ * Input: All known variables:
+ *            - H, k, A, T1, X
+ * Output: The tempurature at side 2
+ *
+ * Pre condition -- All inputs are numbers
+ * 
+ * Returns: 0
+ *******************************************************************/
 
 double tempSide2(){
     cout << "Enter H (rate of heat transfer, W):" << endl;
@@ -49,6 +79,21 @@ double tempSide2(){
     return T2, H, A, k, T1, X;
 }
 
+/******************************************************************
+ * thichness -- Allows user to input known variables to calculate for the thickness between materials
+ *
+ * Parameters: none
+ * Modifies: cout, cin
+ * 
+ * Input: All known variables:
+ *            - H,, K A, T1, T2
+ * Output: The thickness between materials
+ *
+ * Pre condition -- All inputs are numbers
+ * 
+ * Returns: 0
+ *******************************************************************/
+
 double thickness(){
     cout << "Enter H (rate of heat transfer, W):" << endl;
     cin >> H;
@@ -63,6 +108,20 @@ double thickness(){
     X = (A*k*(T2 - T1))/H;
     return X, H, A, k, T1, T2;
 }
+
+/******************************************************************
+ * main --
+ *
+ * Parameters: none
+ * Modifiers: cout, cin
+ * 
+ * Input: Cacluation Choice
+ * Output: All variable values in the calculation
+ * 
+ * Pre Conditions: All inputs are numbers
+ *
+ * Returns: 0 
+ *******************************************************************/
 
 int main(){
     int choice;
