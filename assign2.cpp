@@ -50,19 +50,19 @@ int main() {
     double s, theta_d, v;
     const double g = 9.81;
 
-    cout << "Enter the distance to the target (m):\n";
+    cout << "Enter the distance to the target (m):\n"; // prompts user to enter distance to the targer
     cin >> s;
-    cout << "Enter the launch angle (degrees):\n";
+    cout << "Enter the launch angle (degrees):\n"; // prompts user to enter launch angle
     cin >> theta_d;
-    cout << "Enter the launch speed (m/s):\n";
-    cin >> v;
+    cout << "Enter the launch speed (m/s):\n"; // prompts user to enter launch speed
+    cin >> v; 
 
-    double theta_r = theta_d * M_PI / 180;
-    double time = s / (v * cos(theta_r));
-    double height = v * sin(theta_r) * time - 0.5 * g * time * time;
+    double theta_r = theta_d * M_PI / 180; // converts angle in degrees to radians
+    double time = s / (v * cos(theta_r)); // calculate duration of the flight
+    double height = v * sin(theta_r) * time - 0.5 * g * time * time; // calculate the height of the object when it is at the targer
 
-    cout << "Duration of flight: " << time << " s"<<endl;
-    cout << "Height at the target: " << height << " m" << endl;
+    cout << "Duration of flight: " << time << " s"<<endl; // outputs the flight duration
+    cout << "Height at the target: " << height << " m" << endl; // outputs the height at the target
 
     return 0;
 }

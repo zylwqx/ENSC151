@@ -4,8 +4,8 @@
  * Assignment 6
  * assign6.cpp -- Program that allows the user to solve Thermal Conductivity Problems by selecting which varaible to solve for.
  * 
- * Input:A heading in degrees [0, 360).
- * Output:The corresponding compass bearing or an error message for invalid input.
+ * Input: Known Variables
+ * Output: All variables
  * 
  * Author:Kevin Poon
  *

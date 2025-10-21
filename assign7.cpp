@@ -3,6 +3,7 @@
 #include <cmath>
 #include <string>
 #include <cctype>
+#include <vector>
 
 
 using namespace std;
@@ -12,8 +13,9 @@ int main(){
     string inputNumbers;
     double sum = 0.0;
     double value;
-    double maxValue = 0.0;
+    double maximum = 0.0;
     string positions = "";
+    double avg;
 
     cout << "Please state the number of inputs: " << endl;
     cin >> inputCount;
@@ -31,10 +33,34 @@ int main(){
 
     cout << "Please input all " << inputCount << " values separated by whitespace: " << endl;
 
-    for
+    vector<double> numbers(inputCount);
+    for (int i = 0; i < inputCount; i++){
+        cin >> numbers[i];
+        sum += numbers[i];
+    }
 
-    cout << "The number of values above the average is " << sum/inputCount << endl;
-    cout << "The maxim value was " << maxValue << endl;
+    for (int i = 0; i < inputCount; i++){
+        if (numbers[i] > maximum){
+            maximum = numbers[i];
+        }
+    }
+
+    for (int i = 0; i < inputCount; i++){
+        if (numbers[i] == maximum){
+            positions += to_string(i) + " ";
+        }
+    }
+
+    avg = sum/inputCount;
+    int numAbove = 0;
+    for (int i = 0; i < inputCount; i++){
+        if (numbers[i] > avg){
+            numAbove += 1;
+        }
+    }
+
+    cout << "The number of values above the average is " << numAbove << "." << endl;
+    cout << "The maximum value was " << maximum << "." << endl;
     cout << "The maximum occurred at the following positions: "<< positions << endl;
 
     return 0;
