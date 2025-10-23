@@ -1,12 +1,41 @@
+/******************************************************************
+ * Simon Fraser University
+ * ENSC-151 Introduction to Software Development for Engineers
+ * Assignment 7
+ * assign7.cpp -- Program that takes inputted numbers and outputs the maximum, where the maximum is, and how many numbers are above the average
+ * 
+ * Input: x and x amount of numbers
+ * Output: # of numbers above the average, the maximum number inputted, and the positions of the maximum number
+ * 
+ * Author:Kevin Poon
+ *
+ *******************************************************************/
+
 #include <iostream>
 #include <iomanip>
-#include <cmath>
 #include <string>
-#include <cctype>
 #include <vector>
 
-
 using namespace std;
+
+/******************************************************************
+ * main -- 
+ *
+ * Parameters: none
+ * Modifies: cout -- ask for user input, outputs result
+ *           cin -- takes user input
+ *           vector -- create arrays
+ *           to_string -- converts numbers into a string
+ *           stod -- converts string into a double
+ * 
+ * Input: All known variables:
+ *            - H, A, T1, T2, X
+ * Output: The coefficient of thermal conductivity
+ *
+ * Pre condition -- All inputs are numbers
+ * 
+ * Returns: 0
+ *******************************************************************/
 
 int main(){
     int inputCount;
@@ -17,51 +46,58 @@ int main(){
     string positions = "";
     double avg;
 
-    cout << "Please state the number of inputs: " << endl;
+    cout << "Please state the number of inputs: " << endl; // prompts user for the number of numbers they will input later
     cin >> inputCount;
 
     while (true){
         if (inputCount >= 0 && inputCount <= 100){
             break;
         } else {
-            cout << "Invalid input: number must be between 1 and 100." << endl;
-            cout << "Please state the number of inputs: ";
+            cout << "Invalid input: number must be between 1 and 100." << endl; // tells user their input is invalid
+            cout << "Please state the number of inputs: "; // prompts user for the number of numbers they will input later
             cin >> inputCount;
         }
     }
 
 
-    cout << "Please input all " << inputCount << " values separated by whitespace: " << endl;
+    cout << "Please input all " << inputCount << " values separated by whitespace: " << endl; // prompts user to input x amount of numbers
+    vector<double> numbers(inputCount); // creates an array for the numbers
+    vector<string> rawNum(inputCount); // creates an array for the raw numbers in text form
 
-    vector<double> numbers(inputCount);
     for (int i = 0; i < inputCount; i++){
-        cin >> numbers[i];
-        sum += numbers[i];
+        string nums; // gets raw number in text
+        cin >> nums;
+        rawNum[i] = nums; // stores raw number as text
+        numbers[i] = stod(nums); // converts the number (which was a string) into an double (number)
+        sum += numbers[i]; // stores number as a real number
     }
 
+    int rawI; // list position
+
     for (int i = 0; i < inputCount; i++){
-        if (numbers[i] > maximum){
-            maximum = numbers[i];
+        if (numbers[i] > maximum){ // checked if the number in x position is bigger than the current biggest number
+            maximum = numbers[i]; // makes maxmimum the max number
+            rawI = i; // makes sure I can recall maximum position in the array
         }
     }
 
     for (int i = 0; i < inputCount; i++){
         if (numbers[i] == maximum){
-            positions += to_string(i) + " ";
+            positions += to_string(i) + " "; // adds position number to a array
         }
     }
 
     avg = sum/inputCount;
     int numAbove = 0;
     for (int i = 0; i < inputCount; i++){
-        if (numbers[i] > avg){
-            numAbove += 1;
+        if (numbers[i] > avg){ // checks if number is above the avarage
+            numAbove += 1; // increases amount of numbers above the average by 1
         }
     }
 
-    cout << "The number of values above the average is " << numAbove << "." << endl;
-    cout << "The maximum value was " << maximum << "." << endl;
-    cout << "The maximum occurred at the following positions: "<< positions << endl;
+    cout << "The number of values above the average is " << numAbove << "." << endl; // prints out amount of numbers above the average
+    cout << "The maxim value was " <<  rawNum[rawI] << "." << endl; // prints out the number in raw text so it keeps the 0 at the end
+    cout << "The maximum occurred at the following positions: "<< positions << endl; // prints out which number position the max occurs at
 
     return 0;
     
