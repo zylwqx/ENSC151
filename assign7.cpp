@@ -47,10 +47,10 @@ int main(){
     double avg;
 
     cout << "Please state the number of inputs: " << endl; // prompts user for the number of numbers they will input later
-    cin >> inputCount;
+    cin >> inputCount; // saves the amount of numbers the user wants for furture comparisons
 
-    while (true){
-        if (inputCount >= 0 && inputCount <= 100){
+    while (true){ // ensures user inputs a number between [1, 100]
+        if (inputCount >= 1 && inputCount <= 100){ 
             break;
         } else {
             cout << "Invalid input: number must be between 1 and 100." << endl; // tells user their input is invalid
@@ -102,3 +102,29 @@ int main(){
     return 0;
     
 }
+
+/******************************************************************
+ * $RCSfile: assig7.cpp$ 
+ * $Revision$
+ * $Oct 30, 2025$
+ * $State$
+ *
+ * REVISION HISTORY
+ *
+ * $Log: assign8.cpp$
+ * 
+ * Revision 4 Oct 30, 2025
+ * - Added washer.cpp style comments
+ * 
+ * Revision 3 Oct 26, 2025
+ * - Figured I could use both string and double vectors as number positions would be the same
+ * 
+ * Revision 2 Oct 26, 2025
+ * - Tried finding a way to past the test case. 
+ * - Attempted to use string vector but cant do math functions with string
+ * 
+ * Revision 1 Oct 26, 2025
+ * - Initial creation of variables and functions
+ * - Completed majority of the code
+ * - Failed 1 test case
+ ******************************************************************/

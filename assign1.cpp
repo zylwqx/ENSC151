@@ -35,11 +35,11 @@ int main() {
     double IS, FS, TH, TM;
 
     //ask for user input and store values
-    cout << "Please enter the number of strides taken in the first minute: ";
+    cout << "Please enter the number of strides taken in the first minute: " << endl;
     cin >> IS;
-    cout << "Please enter the number of strides taken in the last minute: ";
+    cout << "Please enter the number of strides taken in the last minute: " << endl;
     cin >> FS;
-    cout << "Please enter the number of hours and minutes jogged (hh mm): ";
+    cout << "Please enter the number of hours and minutes jogged: " << endl;
     cin >> TH >> TM;
 
     
@@ -47,8 +47,8 @@ int main() {
     int TT = TH * 60 + TM; //Converting time to total minutes
 
     //Output results
-    cout << "Arnie's estimated average stride rate (strides/minute): " << avgStrides << std::endl;
-    cout << "Total distance that Arnie has jogged (km): " << avgStrides * TT * 0.0075 << " km" << std::endl;
+    cout << "Arnie's estimated average stride rate (strides/minute): " << avgStrides << endl;
+    cout << "Total distance that Arnie has jogged (km): " << avgStrides * TT * 0.00075 << endl;
 
     return 0;
 }   

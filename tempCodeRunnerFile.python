@@ -1,0 +1,13 @@
+import math
+
+def hybridIndex():
+    x = -6
+    while x < 6:
+        Hx = ((2 * (math.e ** (x / 2)) * (1 - (math.e ** x))) / ((1 + (math.e ** x)) ** 2))
+        print(Hx)
+        x += 1
+
+def main():
+    hybridIndex()
+
+main()
